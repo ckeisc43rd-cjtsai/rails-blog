@@ -14,6 +14,8 @@ class BlogPostsController < ApplicationController
     
     def create
         @blog_post = BlogPost.new(blog_post_params)
+        @blog_post.author = current_user.id
+        @blog_post.user = current_user
         if @blog_post.save
             redirect_to @blog_post
         else
@@ -46,7 +48,7 @@ class BlogPostsController < ApplicationController
     def set_blog_post
         @blog_post = BlogPost.find(params[:id]) 
         rescue ActiveRecord::RecordNotFound
-            edirect_to root_path
+            redirect_to root_path
     end
     def authenticate_user! 
         redirect_to new_user_session_path, alert: "YOU MUST SIGN IN TO CONTINUE" unless user_signed_in?

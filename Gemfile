@@ -69,3 +69,9 @@ end
 gem "device", "~> 0.0.0"
 
 gem "devise", "~> 4.9"
+
+
+
+gem "tailwindcss-rails", "~> 2.0"
+gem "redcarpet"
+gem "hotwire-rails", "~> 0.1.3"

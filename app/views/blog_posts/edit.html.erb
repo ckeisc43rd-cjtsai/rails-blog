@@ -1,5 +1,8 @@
 <h1> Edit Blog Post</h1>
-
+<%if @blog_post.user==current_user or (user_signed_in? and current_user.id == 1)%>
 <%= render partial: "form", locals: {blog_post: @blog_post}%>
 
-<%= button_to "Delete", @blog_post, method: :delete, data: { turbo_confirm: 'Are you sure?' } %>
+<%= button_to "Delete", @blog_post, method: :delete, data: { turbo_confirm: 'Are you sure?' } ,  class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200"%>
+<%else%>
+<%=markdown("youredasabi")%>
+<%end%>
