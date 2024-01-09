@@ -1,12 +1,21 @@
-<h1 class="text-5xl"> Blog Posts </h1>
+<h1 class="text-6xl"> Blog Posts </h1>
 <%= button_to "New Post", new_blog_post_path, method: :get, class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200" if user_signed_in?%>
 <% @blog_posts.reverse_each do |blog_post| %>
     
-    <div class="text-xl bg-yellow-100 border-4 p-4">
-        <h2 class="m-0"><%=link_to blog_post.title, blog_post %></h2>
+    <div class=" text-xl bg-lanzhi  border-4 p-4 items-center">
+        <h2 class="m-0 text-4xl underline"><%=link_to blog_post.title, blog_post %></h2>
         author: <%= blog_post.user.username %>
         <%=markdown_no_html(blog_post.body[0, 50])%>
         <%= markdown("...") if blog_post.body.length>50 %>
+        <% if blog_post.comments !=[] %>
+            <div class="text-l bg-danzhi border-4 p-4">
+            <%blog_post.comments.reverse_each do |comment|%>
+                <%=comment.user.username%>:
+                <%=comment.text%>
+                <br>
+            <%end%>
+            </div>
+        <% end %>
     </div>
 
 <% end %>

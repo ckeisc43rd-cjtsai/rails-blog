@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   #patch "/blog_posts/:id", to: "blog_posts#update"
   #delete "/blog_posts/:id", to: "blog_posts#destroy"
 
-  resources :blog_posts
-
+  resources :blog_posts do
+    resources :comments
+  end
   # Defines the root path route ("/")
    root "blog_posts#index"
 end

@@ -2,6 +2,16 @@
 <h5>author: <%= @blog_post.user.username %></h5> 
 <div class="text-xl bg-yellow-100 border-red-100 border-4 p-4">
     <%=markdown_no_html(@blog_post.body)%>
+    <% if @blog_post.comments !=[] %>
+    <div class="text-l bg-blue-100 border-4 p-4">
+    <%@blog_post.comments.reverse_each do |comment|%>
+        <%=comment.user.username%>:
+        <%=comment.text%>
+        <br>
+    <%end%>
+    </div>
+<% end %>
+<%= render partial: "comments/form", locals: {blog_post: @blog_post, comment: @comment} if user_signed_in?%>
 </div>
 
 <div class="flex justify-between">
@@ -9,3 +19,5 @@
 
 <%= button_to "Delete", @blog_post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200" if @blog_post.user == current_user or (user_signed_in? and current_user.id == 1) %>
 </div>
+
+

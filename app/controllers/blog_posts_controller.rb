@@ -5,7 +5,7 @@ class BlogPostsController < ApplicationController
         @blog_posts = BlogPost.all
     end
     def show
-
+        @comment= Comment.new
     end
 
     def new

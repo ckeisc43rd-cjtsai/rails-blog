@@ -1,0 +1,6 @@
+<%= form_with model: @comment do |form| %>
+    <div>
+        <%=form.text_area :text %>
+    </div>
+    <%= form.button class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200" %>
+<%end%>
