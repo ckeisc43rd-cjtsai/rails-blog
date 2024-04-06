@@ -11,8 +11,7 @@
             <div class="text-l bg-danzhi border-4 p-4">
             <%blog_post.comments.reverse_each do |comment|%>
                 <%=comment.user.username%>:
-                <%=comment.text%>
-                <br>
+                <%=markdown_no_html("-"+'&nbsp;'+comment.text)%>
             <%end%>
             </div>
         <% end %>
