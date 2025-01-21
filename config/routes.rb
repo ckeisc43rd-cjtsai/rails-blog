@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mathjax 'mathjax'
   get 'home/index'
   default_url_options host: 'ruby.cjtsai.com'
   default_url_options protocol: :https

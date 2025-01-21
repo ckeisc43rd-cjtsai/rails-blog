@@ -3,6 +3,12 @@ module ApplicationHelper
     options = [:hard_wrap, :autolink, :no_intra_emphasis, :fenced_code_blocks, :strikethrough, :quote]
     Markdown.new(text, *options).to_html.html_safe
   end
+
+  def markdown_no_script(text)
+    ret = markdown(text)
+    ActiveSupport::SafeBuffer.new(Regexp.new('^<script>(.*)<\/script>$').match(ret)[1]) rescue ret
+  end
+
   def markdown_no_html(text)
     if text == nil
       return

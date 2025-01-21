@@ -9,9 +9,9 @@
         <%= markdown("...") if blog_post.body.length>50 %>
         <% if blog_post.comments !=[] %>
             <div class="text-l bg-danzhi border-4 p-4">
-            <%blog_post.comments.reverse_each do |comment|%>
+            <%blog_post.comments.each do |comment|%>
                 <%=comment.user.username%>:
-                <%=markdown_no_html("-"+'&nbsp;'+comment.text)%>
+                <%=markdown_no_script("-"+'&nbsp;'+comment.text)%>
             <%end%>
             </div>
         <% end %>

@@ -12,6 +12,7 @@ Rails.application.configure do
 config.hosts << "rb"
 config.action_controller.default_url_options= {host: 'ruby.cjtsai.com'}
 config.hosts << "ruby.cjtsai.com"
+config.hosts << "cjtsai.com"
 config.action_controller.forgery_protection_origin_check = false
   # Do not eager load code on boot.
   config.eager_load = false

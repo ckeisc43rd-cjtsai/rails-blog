@@ -1,7 +1,7 @@
 <h1> <%=@blog_post.title%> </h1>
 <h5>author: <%= @blog_post.user.username %></h5> 
 <div class="text-xl bg-yellow-100 border-red-100 border-4 p-4">
-    <%=markdown_no_html(@blog_post.body)%>
+    <%=markdown_no_script(@blog_post.body)%>
     <% if @blog_post.comments !=[] %>
     <div class="text-l bg-blue-100 border-4 p-4">
     <%@blog_post.comments.reverse_each do |comment|%>
