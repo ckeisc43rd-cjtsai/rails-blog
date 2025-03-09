@@ -2,12 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+/* Global Styles */
+body {
+  @apply bg-gray-900 text-gray-100 font-sans;
 }
 
-*/
+/* Utility Container */
+.container {
+  @apply mx-auto max-w-6xl px-4;
+}
+
+/* Header & Navigation */
+header nav {
+  @apply bg-gradient-to-r from-blue-900 to-blue-700 p-6 shadow-md;
+}
+
+header nav h1 {
+  @apply text-white text-3xl font-extrabold;
+}
+
+header nav a {
+  @apply text-white hover:text-gray-300 transition-colors;
+}
+
+/* Notifications */
+.notice {
+  @apply bg-green-800 text-green-200 p-4 rounded-md border border-green-700 mb-4;
+}
+
+.alert {
+  @apply bg-red-800 text-red-200 p-4 rounded-md border border-red-700 mb-4;
+}
+
+/* Main Content */
+main {
+  @apply p-6;
+}
+
+/* Footer */
+footer {
+  @apply bg-gray-800 text-gray-300 py-4;
+}
+
+footer p {
+  @apply text-center;
+}

@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   #post "/blog_posts", to: "blog_posts#create", as: :blog_posts
   #patch "/blog_posts/:id", to: "blog_posts#update"
   #delete "/blog_posts/:id", to: "blog_posts#destroy"
+  resources :problems, only: [:index]
+  
+  resources :user_problems, only: [:create, :update] do
+    member do
+      post :advance
+    end
+  end
 
   resources :blog_posts do
     resources :comments

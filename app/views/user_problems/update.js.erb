@@ -1,0 +1,7 @@
+// app/views/user_problems/update.js.erb
+
+// Find the problem div using a data attribute and update the status text:
+const problemDiv = document.querySelector("[data-problem-id='<%= @user_problem.problem.id %>']");
+if (problemDiv) {
+  problemDiv.querySelector("p").innerText = "Status: <%= @user_problem.status.humanize %>";
+}

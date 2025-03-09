@@ -9,6 +9,8 @@ Rails.application.configure do
 #  config.force_ssl = true
   config.serve_static_files = true
   config.enable_reloading = true
+  config.web_console.whitelisted_ips = '210.71.78.245'
+
 config.hosts << "rb"
 config.action_controller.default_url_options= {host: 'ruby.cjtsai.com'}
 config.hosts << "ruby.cjtsai.com"

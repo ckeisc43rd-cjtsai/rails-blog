@@ -1,0 +1,13 @@
+<!-- app/views/problems/_problem.html.erb -->
+<turbo-frame id="problem_<%= problem.id %>">
+    <div class="problem-item" data-problem-id="<%= problem.id %>">
+      <h3><%= problem.name %></h3>
+      <p>Status: <%= user_problem.status.present? ? user_problem.status.humanize : "Not Started" %></p>
+      <%= button_to "Advance Status", advance_user_problem_path(user_problem),
+      method: :post,
+      data: {turbo: false},
+      remote: true,
+      class: "advance-status-btn" %>
+    </div>
+  </turbo-frame>
+  

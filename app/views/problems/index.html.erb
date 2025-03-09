@@ -1,0 +1,7 @@
+<!-- app/views/problems/index.html.erb -->
+<h1>Your Problem Checklist</h1>
+
+<% @problems.each do |problem| %>
+  <% user_problem = current_user.user_problems.find_or_create_by(problem: problem) %>
+  <%= render partial: "problems/problem", locals: { problem: problem, user_problem: user_problem } %>
+<% end %>

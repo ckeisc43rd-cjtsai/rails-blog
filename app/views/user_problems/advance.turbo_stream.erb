@@ -1,0 +1,4 @@
+<!-- app/views/user_problems/advance.turbo_stream.erb -->
+<%= turbo_stream.replace "problem_#{@user_problem.problem.id}" do %>
+  <%= render partial: "problems/problem", locals: { problem: @user_problem.problem, user_problem: @user_problem } %>
+<% end %>

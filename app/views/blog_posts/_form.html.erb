@@ -1,18 +1,28 @@
-<%= form_with model: @blog_post do |form| %>
-    <% if form.object.errors.any? %>
-        <div>
-            <%form.object.errors.full_messages.each do |message| %>
-                <div><%= message %></div>
-            <%end%>
-        </div>
-    <%end%>
-    <div>
-        <%=form.label :title%>
-        <%=form.text_field :title %>
+<%= form_with model: @blog_post, class: "bg-gray-900 p-8 rounded-xl shadow-md space-y-6" do |form| %>
+  <% if form.object.errors.any? %>
+    <div class="bg-red-800 text-red-200 p-4 rounded-md mb-4">
+      <ul class="list-disc list-inside">
+        <% form.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-    <div>
-        <%=form.label :body%>
-        <%=form.text_area :body %>
-    </div>
-    <%= form.button class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200" %>
-<%end%>
+  <% end %>
+
+  <!-- Title Field -->
+  <div class="border border-gray-700 p-4 rounded-xl bg-gray-800">
+    <%= form.label :title, class: "block text-lg text-gray-200 font-semibold mb-2" %>
+    <%= form.text_field :title, class: "w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-blue-500" %>
+  </div>
+
+  <!-- Body Field -->
+  <div class="border border-gray-700 p-4 rounded-xl bg-gray-800">
+    <%= form.label :body, class: "block text-lg text-gray-200 font-semibold mb-2" %>
+    <%= form.text_area :body, rows: 8, class: "w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-blue-500" %>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="text-right">
+    <%= form.button "Submit", class: "inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition" %>
+  </div>
+<% end %>

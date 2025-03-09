@@ -1,6 +1,21 @@
-<%= form_with model: @comment do |form| %>
-    <div>
-        <%=form.text_area :text %>
-    </div>
-    <%= form.button class: "bg-blue-400 px-4 py-2 rounded hover:bg-blue-200" %>
-<%end%>
+<!-- app/views/comments/_form.html.erb -->
+<div class="mt-6 bg-gray-900 p-6 rounded-2xl shadow-lg border border-gray-600">
+    <%= form_with model: @comment, class: "space-y-4" do |form| %>
+      <h3 class="text-2xl font-bold text-gray-200 mb-2">Leave a Comment</h3>
+      
+      <div>
+        <%= form.label :text, "Your Comment", class: "block text-lg text-gray-200 font-semibold mb-2" %>
+        <%= form.text_area :text, rows: 6,
+              class: "w-full p-3 bg-gray-800 border border-gray-600 
+                     rounded-lg text-gray-100 focus:outline-none 
+                     focus:border-blue-500" %>
+      </div>
+  
+      <div class="text-right">
+        <%= form.button "Post Comment", 
+              class: "inline-block bg-blue-600 text-white px-6 py-2 
+                      rounded-lg hover:bg-blue-500 transition" %>
+      </div>
+    <% end %>
+  </div>
+  
