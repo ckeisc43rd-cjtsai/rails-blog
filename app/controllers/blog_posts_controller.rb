@@ -8,11 +8,11 @@ class BlogPostsController < ApplicationController
                 User.find(params[:user_id]).blog_posts.order(created_at: :desc)
             else
                 # exclude the user_id 44
-                User.find(params[:user_id]).blog_posts.where.order(created_at: :desc)
+                User.find(params[:user_id]).blog_posts.order(created_at: :desc)
             end
           else
             #exclude the user_id 44
-            BlogPost.where.not(user_id: 44).order(created_at: :desc)
+            BlogPost.order(created_at: :desc)
           end.page(params[:page]).per(10)
     end
 
