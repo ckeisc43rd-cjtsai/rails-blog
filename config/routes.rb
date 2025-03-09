@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   resources :blog_posts do
     resources :comments
   end
+
+  resources :users, only: [] do
+    resources :blog_posts, only: [:index]
+  end
   # Defines the root path route ("/")
    root "blog_posts#index"
 end

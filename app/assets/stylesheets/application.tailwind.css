@@ -47,3 +47,25 @@ footer {
 footer p {
   @apply text-center;
 }
+
+/* Pagination */
+.pagination {
+  @apply flex justify-center mt-8;
+}
+
+.pagination ul {
+  @apply inline-flex items-center space-x-2;
+}
+
+.pagination li a,
+.pagination li span {
+  @apply px-3 py-2 rounded border border-gray-600 text-gray-200;
+}
+
+.pagination li a:hover {
+  @apply bg-gray-600;
+}
+
+.pagination li .active {
+  @apply bg-gray-700 text-white;
+}

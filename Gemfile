@@ -76,3 +76,4 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "redcarpet"
 gem "mathjax-rails"
 gem "hotwire-rails", "~> 0.1.3"
+gem 'kaminari' , '~> 1.1', '>= 1.1.1'

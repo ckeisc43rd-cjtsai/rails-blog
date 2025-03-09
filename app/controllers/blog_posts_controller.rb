@@ -1,9 +1,21 @@
 class BlogPostsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :set_blog_post, only: [:edit, :update, :show, :destroy]
+
     def index
-        @blog_posts = BlogPost.all
+        @blog_posts = if params[:user_id]
+            if params[:user_id] == "44"
+                User.find(params[:user_id]).blog_posts.order(created_at: :desc)
+            else
+                # exclude the user_id 44
+                User.find(params[:user_id]).blog_posts.where.not(user_id: 44).order(created_at: :desc)
+            end
+          else
+            #exclude the user_id 44
+            BlogPost.where.not(user_id: 44).order(created_at: :desc)
+          end.page(params[:page]).per(10)
     end
+
     def show
         @comment= Comment.new
     end
@@ -53,4 +65,7 @@ class BlogPostsController < ApplicationController
     def authenticate_user! 
         redirect_to new_user_session_path, alert: "YOU MUST SIGN IN TO CONTINUE" unless user_signed_in?
     end
+
+
+
 end

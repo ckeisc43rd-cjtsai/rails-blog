@@ -11,11 +11,11 @@ Rails.application.configure do
   config.enable_reloading = true
   config.web_console.whitelisted_ips = '210.71.78.245'
 
-config.hosts << "rb"
-config.action_controller.default_url_options= {host: 'ruby.cjtsai.com'}
-config.hosts << "ruby.cjtsai.com"
-config.hosts << "cjtsai.com"
-config.action_controller.forgery_protection_origin_check = false
+  config.hosts << "rb"
+  config.action_controller.default_url_options= {host: 'ruby.cjtsai.com'}
+  config.hosts << "ruby.cjtsai.com"
+  config.hosts << "cjtsai.com"
+  config.action_controller.forgery_protection_origin_check = false
   # Do not eager load code on boot.
   config.eager_load = false
 
