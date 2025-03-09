@@ -1,10 +1,15 @@
 <div class="max-w-4xl mx-auto px-4 py-6">
     <% if @user %>
-      <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts By <%= @user.username %></h1>
+      <% if @user.id == 44 %>
+        <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">cjtsai的TOI日記</h1>
+      <% else %>
+        <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts by <%= @user.username %></h1>
+      <% end %>
     <% else %>
       <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts</h1>
     <% end %>
-    <% if user_signed_in? %>
+
+    <% if user_signed_in? && !@user %>
       <div class="text-center mb-6">
         <%= button_to "New Post", new_blog_post_path, method: :get, class: "bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-500 transition" %>
       </div>

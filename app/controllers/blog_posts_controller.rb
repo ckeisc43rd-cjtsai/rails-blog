@@ -3,6 +3,9 @@ class BlogPostsController < ApplicationController
     before_action :set_blog_post, only: [:edit, :update, :show, :destroy]
 
     def index
+        if params[:user_id]
+            @user = User.find(params[:user_id])
+        end
         @blog_posts = if params[:user_id]
             if params[:user_id] == "44"
                 User.find(params[:user_id]).blog_posts.order(created_at: :desc)
