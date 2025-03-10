@@ -2,7 +2,7 @@
 <h5 class="text-lg text-gray-400 mb-4">author: <%= @blog_post.user.username %></h5>
 
 <div class="text-xl bg-gray-800 border border-gray-700 p-4 rounded-lg mb-6">
-  <%= markdown_no_script(@blog_post.body) %>
+  <%= markdown(@blog_post.body) %>
   
   <% if @blog_post.comments.present? %>
     <div class="mt-4 text-lg bg-gray-700 border border-gray-600 p-4 rounded-lg">

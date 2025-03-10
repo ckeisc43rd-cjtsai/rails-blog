@@ -69,3 +69,25 @@ footer p {
 .pagination li .active {
   @apply bg-gray-700 text-white;
 }
+@layer components {
+  /* Target the wrapper that now has the highlight class */
+  .highlight {
+    @apply bg-[#282a36] text-[#f8f8f2] p-4 rounded-lg border border-[#44475a] shadow-lg overflow-x-auto;
+  }
+  /* Additionally, target the <pre> element inside the highlight if present */
+  .highlight pre {
+    @apply m-0 p-0 bg-transparent border-0;
+  }
+  /* Syntax elements for Rouge – these classes may vary based on Rouge’s output */
+  .highlight .c { @apply text-[#6272a4] italic; } /* Comment */
+  .highlight .k { @apply text-[#ff79c6] font-bold; } /* Keyword */
+  .highlight .p { @apply text-[#f8f8f2]; } /* Punctuation */
+  .highlight .n { @apply text-[#f8f8f2]; } /* Name */
+  .highlight .s { @apply text-[#f1fa8c]; } /* String */
+  .highlight .o { @apply text-[#ff5555]; } /* Operator */
+  .highlight .mi { @apply text-[#bd93f9]; } /* Number */
+  .highlight .cp { @apply text-[#ffb86c]; } /* Preprocessor */
+  .highlight .nf { @apply text-[#50fa7b]; } /* Function */
+  .highlight .kt { @apply text-[#ffb86c]; } /* Type */
+}
+

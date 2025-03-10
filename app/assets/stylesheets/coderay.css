@@ -1,0 +1,29 @@
+/* Dracula Theme for CodeRay */
+.CodeRay {
+  background-color: #282a36;
+  color: #f8f8f2;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.CodeRay .line-numbers {
+  color: #6272a4;
+}
+
+.CodeRay .comment { color: #6272a4; font-style: italic; }
+.CodeRay .string { color: #f1fa8c; }
+.CodeRay .keyword { color: #ff79c6; font-weight: bold; }
+.CodeRay .class { color: #50fa7b; }
+.CodeRay .method { color: #50fa7b; }
+.CodeRay .integer { color: #bd93f9; }
+.CodeRay .float { color: #bd93f9; }
+.CodeRay .constant { color: #ffb86c; }
+.CodeRay .symbol { color: #f8f8f2; }
+.CodeRay .variable { color: #50fa7b; }
+.CodeRay .regexp { color: #ffb86c; }
+.CodeRay .attribute { color: #ffb86c; }
+.CodeRay .directive { color: #ff79c6; font-weight: bold; }
+.CodeRay .escape { color: #ff79c6; font-weight: bold; }
+.CodeRay .error { color: #ff5555; background-color: #282a36; }
+

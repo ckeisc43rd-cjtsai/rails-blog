@@ -24,7 +24,7 @@
           Author: <u><%= link_to blog_post.user.username , user_blog_posts_path(blog_post.user)%></u>
         </p>
         <p class="mb-4 text-gray-100">
-          <%= markdown_no_html(blog_post.body[0, 50]) %>
+          <%= markdown(blog_post.body[0, 50]) %>
           <%= markdown("...") if blog_post.body.length > 50 %>
         </p>
         
@@ -35,7 +35,7 @@
               <div class="mb-2">
                 <span class="font-bold text-gray-300"><%= comment.user.username %>:</span>
                 <span class="text-gray-200">
-                  <%= markdown_no_script("- "+comment.text[0, 50]+["","..."][comment.text.length>50?1:0]) %>
+                  <%= markdown("- "+comment.text[0, 50]+["","..."][comment.text.length>50?1:0]) %>
                 </span>
               </div>
             <% end %>
