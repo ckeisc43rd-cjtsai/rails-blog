@@ -1,7 +1,7 @@
 <h1 class="text-5xl font-bold text-gray-100 mb-2"><%= @blog_post.title %></h1>
 <h5 class="text-lg text-gray-400 mb-4">author: <%= @blog_post.user.username %></h5>
-
-<div class="text-xl bg-gray-800 border border-gray-700 p-4 rounded-lg mb-6">
+<% content_for :title, @blog_post.title %>
+<div class="text-xl bg-gray-800 border border-gray-700 p-4 rounded-lg mb-6 prose">
   <%= markdown(@blog_post.body) %>
   
   <% if @blog_post.comments.present? %>

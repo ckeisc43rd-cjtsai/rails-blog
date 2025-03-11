@@ -9,6 +9,7 @@ class BlogPostsController < ApplicationController
         @blog_posts = if params[:user_id]
             if params[:user_id] == "44"
                 User.find(params[:user_id]).blog_posts.order(created_at: :desc)
+
             else
                 # exclude the user_id 44
                 User.find(params[:user_id]).blog_posts.order(created_at: :desc)

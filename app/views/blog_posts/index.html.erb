@@ -2,11 +2,14 @@
     <% if @user %>
       <% if @user.id == 44 %>
         <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">cjtsai的TOI日記</h1>
+        <% content_for :title, "cjtsai的TOI日記" %>
       <% else %>
         <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts by <%= @user.username %></h1>
+        <% content_for :title, @user.username+"'s posts" %>
       <% end %>
     <% else %>
       <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts</h1>
+      <% content_for :title, "All Blog Posts" %>
     <% end %>
 
     <% if user_signed_in? && !@user %>

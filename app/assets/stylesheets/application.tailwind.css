@@ -91,3 +91,25 @@ footer p {
   .highlight .kt { @apply text-[#ffb86c]; } /* Type */
 }
 
+@layer components {
+  /* Override default typography styles so all text appears white */
+  .prose {
+    color: white;
+  }
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6,
+  .prose p,
+  .prose a,
+  .prose blockquote,
+  .prose li,
+  .prose code,
+  .prose pre,
+  .prose strong {
+    color: white;
+  }
+}
+

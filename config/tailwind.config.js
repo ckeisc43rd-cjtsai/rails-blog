@@ -29,6 +29,17 @@ module.exports = {
         'danzhi': '#c3bef0',
         'shenzhi': '#ccabe9'
       },
+	          typography: {
+        DEFAULT: {
+          css: {
+            color: '#333333', // change default text color
+            h1: {
+              color: '#222222',
+            },
+            // adjust other elements as needed
+          },
+        },
+      },
     },
   },
   plugins: [
