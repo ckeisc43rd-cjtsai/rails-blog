@@ -1,52 +1,62 @@
 <div class="max-w-4xl mx-auto px-4 py-6">
-    <% if @user %>
-      <% if @user.id == 44 %>
-        <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">cjtsai的TOI日記</h1>
-        <% content_for :title, "cjtsai的TOI日記" %>
-      <% else %>
-        <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts by <%= @user.username %></h1>
-        <% content_for :title, @user.username+"'s posts" %>
-      <% end %>
+  <% if @user %>
+    <% if @user.id == 44 %>
+      <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">cjtsai的TOI日記</h1>
+      <% content_for :title, "cjtsai的TOI日記" %>
     <% else %>
-      <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts</h1>
-      <% content_for :title, "All Blog Posts" %>
+      <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts by <%= @user.username %></h1>
+      <% content_for :title, @user.username+"'s posts" %>
     <% end %>
+  <% else %>
+    <h1 class="text-6xl font-bold mb-6 text-center text-gray-100">Blog Posts</h1>
+    <% content_for :title, "All Blog Posts" %>
+  <% end %>
 
-    <% if user_signed_in? && !@user %>
-      <div class="text-center mb-6">
-        <%= button_to "New Post", new_blog_post_path, method: :get, class: "bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-500 transition" %>
-      </div>
-    <% end %>
-
-    <% @blog_posts.each do |blog_post| %>
-      <div class="mb-8 p-6 bg-gray-800 rounded-lg shadow-md border border-gray-700">
-        <h2 class="text-4xl font-semibold mb-2 underline">
-          <%= link_to blog_post.title, blog_post, class: "hover:text-blue-400 transition" %>
-        </h2>
-        <p class="text-gray-400 mb-4">
-          Author: <u><%= link_to blog_post.user.username , user_blog_posts_path(blog_post.user)%></u>
-        </p>
-        <p class="mb-4 text-gray-100">
-          <%= markdown(blog_post.body[0, 50]) %>
-          <%= markdown("...") if blog_post.body.length > 50 %>
-        </p>
-        
-        <% if blog_post.comments.present? %>
-          <div class="mt-4 p-4 bg-gray-700 rounded border border-gray-600">
-            <h3 class="text-2xl font-semibold mb-2 text-gray-100">Comments</h3>
-            <% blog_post.comments.each do |comment| %>
-              <div class="mb-2">
-                <span class="font-bold text-gray-300"><%= comment.user.username %>:</span>
-                <span class="text-gray-200">
-                  <%= markdown("- "+comment.text[0, 50]+["","..."][comment.text.length>50?1:0]) %>
-                </span>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <div class="mt-8">
-      <%= paginate @blog_posts %>
+  <% if user_signed_in? && !@user %>
+    <div class="text-center mb-6">
+      <%= button_to "New Post", new_blog_post_path, method: :get, class: "bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-500 transition" %>
     </div>
+  <% end %>
+
+  <% @blog_posts.each do |blog_post| %>
+    <div class="mb-8 p-6 bg-gray-800 rounded-lg shadow-md border border-gray-700">
+      <h2 class="text-4xl font-semibold mb-2 underline">
+        <%= link_to blog_post.title, blog_post, class: "hover:text-blue-400 transition" %>
+      </h2>
+      <!-- Display Tags if present -->
+      <% if blog_post.tag_list.present? %>
+        <div class="mb-4">
+          <% blog_post.tag_list.each do |tag| %>
+            <span class="inline-block bg-gray-700 text-gray-100 px-2 py-1 rounded mr-2 mb-2">
+              <%= link_to tag, blog_posts_path(tag: tag), class: "hover:underline" %>
+            </span>
+          <% end %>
+        </div>
+      <% end %>
+      <p class="text-gray-400 mb-4">
+      Author: <u><%= link_to blog_post.user.username , user_blog_posts_path(blog_post.user)%></u>
+      </p>
+      <p class="mb-4 text-gray-100">
+      <%= markdown(blog_post.body[0, 50]) %>
+      <%= markdown("...") if blog_post.body.length > 50 %>
+      </p>
+
+      <% if blog_post.comments.present? %>
+        <div class="mt-4 p-4 bg-gray-700 rounded border border-gray-600">
+          <h3 class="text-2xl font-semibold mb-2 text-gray-100">Comments</h3>
+          <% blog_post.comments.each do |comment| %>
+            <div class="mb-2">
+              <span class="font-bold text-gray-300"><%= comment.user.username %>:</span>
+              <span class="text-gray-200">
+                <%= markdown("- "+comment.text[0, 50]+["","..."][comment.text.length>50?1:0]) %>
+              </span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="mt-8">
+    <%= paginate @blog_posts %>
   </div>
+</div>

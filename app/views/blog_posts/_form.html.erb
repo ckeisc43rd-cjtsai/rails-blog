@@ -20,7 +20,11 @@
     <%= form.label :body, class: "block text-lg text-gray-200 font-semibold mb-2" %>
     <%= form.text_area :body, rows: 8, class: "w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-blue-500" %>
   </div>
-
+  <!-- Tag List Field -->
+  <div class="border border-gray-700 p-4 rounded-xl bg-gray-800">
+    <%= form.label :tag_list, "Tags (comma separated)", class: "block text-lg text-gray-200 font-semibold mb-2" %>
+    <%= form.text_field :tag_list, class: "w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-blue-500" %>
+  </div>
   <!-- Submit Button -->
   <div class="text-right">
     <%= form.button "Submit", class: "inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-500 transition" %>

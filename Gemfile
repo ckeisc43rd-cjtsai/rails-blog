@@ -78,6 +78,6 @@ gem "hotwire-rails", "~> 0.1.3"
 gem 'kaminari' , '~> 1.1', '>= 1.1.1'
 gem 'coderay'
 gem 'redcarpet', github: 'vmg/redcarpet'
-
+gem 'acts-as-taggable-on'
 
 gem "rouge", "~> 4.5"
